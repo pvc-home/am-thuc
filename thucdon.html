@@ -1,1 +1,644 @@
-<!DOCTYPE html><head>	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	<title>TD</title>	<script language="javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>	<style>	    .Button:active {	        background:yellow;	        color:white;	    }	    	    a{	        text-decoration: none;	    }	</style></head><body>    <script>        class MonAn        {            constructor(Id,Ten,ChungLoaiMonAnId,Active,MuaVuId,BabyOk)            {                this.Id = Id;                this.Ten = Ten;                this.Active = Active;                this.MuaVuId = MuaVuId;                this.ChungLoaiMonAnId = ChungLoaiMonAnId;                this.BabyOk = BabyOk;            }                        Show()            {                var ShowHTML = '';                ShowHTML = ShowHTML + '<div style="border-radius:5px;float:left;margin:0px 5px 5px 0px;border:0.3px solid green;color:green;">' + this.Ten + '</div>';                document.getElementById('DSMonAn').innerHTML = document.getElementById('DSMonAn').innerHTML + ShowHTML;            }                        ToOption()            {                return '<option value="' + this.Id + '">' + this.Ten + '</option>';            }        }                class ChungLoaiMonAn        {            constructor(Id,Ten,PhanLoaiTrenMam)            {                this.Id = Id;                this.Ten = Ten;                this.PhanLoaiTrenMam = PhanLoaiTrenMam;            }        }                                        var DSChungLoaiMonAn = [];        DSChungLoaiMonAn.push(new ChungLoaiMonAn(0,"Tinh Bột"               ,1));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(1,"Thịt gia súc"           ,2));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(2,"Thịt/trứng gia cầm"     ,2));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(3,"Tôm/Cá nước ngọt"       ,2));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(4,"Rau"                    ,3));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(5,"Củ/quả nấu"             ,3));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(6,"Hoa quả"                ,5));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(7,"Bánh kẹo/sữa/đồ khô"    ,6));        DSChungLoaiMonAn.push(new ChungLoaiMonAn(8,"Khác"                   ,6));                        class MuaVu        {            constructor(Id,Ten)            {                this.Id = Id;                this.Ten = Ten;            }                        ToOption()            {                return '<option value="' + this.Id + '">' + this.Ten + '</option>';            }        }                var DSMuaVu = [];                DSMuaVu.push(new MuaVu (0,"Quanh năm"));        DSMuaVu.push(new MuaVu (1,"Mùa Hè"));        DSMuaVu.push(new MuaVu (2,"Mùa Đông"));        DSMuaVu.push(new MuaVu (3,"Mùa Thu"));        DSMuaVu.push(new MuaVu (4,"Mùa Xuân"));                        class ComBoMonAn        {            constructor(Id,Ten,KetCau)            {                this.Id = Id;                this.Ten = Ten;                this.KetCau = KetCau;            }        }        var DSPhanLoaiTrenMam = ("Khai vị","Tinh bột","Thức ăn mặn","Canh Rau","Món nhắm rượu bia","Tráng miệng","Khác");        var DSComBoMonAn = [];        DSComBoMonAn.push(new ComBoMonAn(0,"Mặc định",[1,2,3]));        DSComBoMonAn.push(new ComBoMonAn(1,"Mặc định có tráng miệng",[1,2,3,5]));        DSComBoMonAn.push(new ComBoMonAn(2,"Nhậu Có tráng miệng",[1,2,3,4,5]));        DSComBoMonAn.push(new ComBoMonAn(3,"Có khai vị, tráng miệng",[0,1,2,3,5]));                        var DSMonAn = [];        var Id = 0;        DSMonAn.push(new MonAn(Id ,"Cơm"                            ,0,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Bún"                            ,0,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Cháo"                           ,0,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Phở"                            ,0,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Bánh mì"                        ,0,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Xôi"                            ,0,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Bánh bột khác"                  ,0,1,0,1));Id++;                DSMonAn.push(new MonAn(Id ,"Thịt lợn kho"                   ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt lợn luộc"                  ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Tai lợn luộc"                   ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Chân giò lợn luộc/nướng luộc"   ,1,1,0,1));Id++;                DSMonAn.push(new MonAn(Id ,"Thịt lợn kho dừa"               ,1,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt lợn băm rim mắm hành"      ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt lợn viên [sốt cà chua]"    ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt lợn kho tàu"               ,1,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt lợn kho dừa"               ,1,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt lợn rán/quay"              ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt xíu"                       ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Sườn lợn sốt cà chua"           ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Sườn lợn rán"                   ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt lợn băm cuốn lá lốt"       ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Giò/chả lợn"                    ,1,1,0,1));Id++;                DSMonAn.push(new MonAn(Id ,"Thịt gà kho"                    ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt gà luộc"                   ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Chân gà luộc"                   ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt gà rán"                    ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt gà rang muối"              ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt gà xào sả"                 ,1,1,0,1));Id++;                DSMonAn.push(new MonAn(Id ,"Cá rán"                         ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Cá kho"                         ,1,1,0,1));Id++;                        DSMonAn.push(new MonAn(Id ,"Thịt Bò xào tỏi"                ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt Bò băm xào hành tây"       ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Thịt Bò cuốn lá cải"            ,1,1,0,0));Id++;                DSMonAn.push(new MonAn(Id ,"Đậu Phụ luộc"                   ,1,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Đậu Phụ rán"                    ,1,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Đậu Phụ [nhồi thịt] sốt cà chua",1,1,0,0));Id++;                        DSMonAn.push(new MonAn(Id ,"Trứng luộc [dầm mắm]"           ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Trứng tráng"                    ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Trứng quấy"                     ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Trứng ốp"                       ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Trứng gà lá mơ"                 ,1,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Trứng chim cút luộc"            ,1,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Trứng chim cút kho thịt"        ,1,1,0,0));Id++;                DSMonAn.push(new MonAn(Id ,"Rau muống luộc"                 ,4,1,1,1));Id++;        DSMonAn.push(new MonAn(Id ,"Rau muống xào tỏi"              ,4,1,1,0));Id++;        DSMonAn.push(new MonAn(Id ,"Rau muống xào thịt"             ,4,1,1,1));Id++;                DSMonAn.push(new MonAn(Id ,"Rau ngót nấu thịt băm"          ,4,1,1,1));Id++;        DSMonAn.push(new MonAn(Id ,"Rau ngót nấu sườn"              ,4,1,1,1));Id++;                DSMonAn.push(new MonAn(Id ,"Rau bí xào tỏi"                 ,4,1,1,0));Id++;        DSMonAn.push(new MonAn(Id ,"Quả bí đao nấu thịt băm"        ,4,1,1,1));Id++;                DSMonAn.push(new MonAn(Id ,"Rau cải ngọt luộc"              ,4,1,2,1));Id++;        DSMonAn.push(new MonAn(Id ,"Canh cải ngọt thịt băm"         ,4,1,2,1));Id++;                DSMonAn.push(new MonAn(Id ,"Canh củ cải hầm xương"          ,4,1,2,1));Id++;        DSMonAn.push(new MonAn(Id ,"Canh củ cải thịt băm"           ,4,1,2,1));Id++;                DSMonAn.push(new MonAn(Id ,"Rau cải bắp luộc"               ,4,1,2,1));Id++;        DSMonAn.push(new MonAn(Id ,"Canh cải bắp hầm xương"         ,4,1,2,1));Id++;                DSMonAn.push(new MonAn(Id ,"Su hào luộc"                    ,4,1,2,1));Id++;        DSMonAn.push(new MonAn(Id ,"Canh Su hào hầm xương"          ,4,1,2,1));Id++;                DSMonAn.push(new MonAn(Id ,"Canh khoai tây hầm xương"       ,4,1,2,1));Id++;        DSMonAn.push(new MonAn(Id ,"Susu xào tỏi"                   ,4,1,2,1));Id++;                DSMonAn.push(new MonAn(Id ,"Canh cà chua trứng"             ,4,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Canh cà chua hầm xương"         ,4,1,0,1));Id++;                DSMonAn.push(new MonAn(Id ,"Khoai tây chiên"                ,0,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Phổng tôm"                      ,0,1,0,1));Id++;        DSMonAn.push(new MonAn(Id ,"Khoai lang nướng"               ,0,1,0,0));Id++;                        DSMonAn.push(new MonAn(Id ,"Dưa hấu"                        ,6,1,1,1));Id++;        DSMonAn.push(new MonAn(Id ,"Chuối"                          ,6,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Cam"                            ,6,1,1,0));Id++;        DSMonAn.push(new MonAn(Id ,"Xoài"                           ,6,1,1,0));Id++;        DSMonAn.push(new MonAn(Id ,"Bưởi"                           ,6,1,3,0));Id++;        DSMonAn.push(new MonAn(Id ,"Mít"                            ,6,1,1,0));Id++;        DSMonAn.push(new MonAn(Id ,"Nho"                            ,6,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Táo"                            ,6,1,0,0));Id++;        DSMonAn.push(new MonAn(Id ,"Lê"                             ,6,1,0,0));Id++;                        class ThucDonYeuThich        {            constructor(Id,ComBoMonAnId,ComBo,MuaVuId,BabyOk)            {                this.Id = Id;                this.ComBoMonAnId = ComBoMonAnId;                this.ComBo = ComBo;                this.MuaVuId = MuaVuId;                this.BabyOk = BabyOk;            }        }                var DSThucDonYeuThich = [];        var IdCom = 0;        DSThucDonYeuThich.push(new ThucDonYeuThich(0,0,[IdCom,'Thịt kho','Rau muống luộc']                ,0,1,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(1,0,[IdCom,'Thịt luộc','Rau muống luộc']               ,0,1,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(2,0,[IdCom,'Thịt băm','Canh trứng cà chua']            ,0,0,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(3,0,[IdCom,'Trứng tráng','Rau muống luộc']             ,0,0,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(4,0,[IdCom,'Trứng tráng','Rau cải/bắp cải luộc']       ,0,2,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(5,0,[IdCom,'Thịt gà kho','Rau cải/bắp cải luộc']       ,0,2,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(6,0,[IdCom,'Thịt gà kho','Rau muống luộc']             ,0,1,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(7,0,[IdCom,'Đậu sốt cà chua','Rau muống luộc']         ,0,1,1));        DSThucDonYeuThich.push(new ThucDonYeuThich(8,0,[IdCom,'Đậu sốt cà chua','canh rau ngót thịt băm'] ,0,1,1));                                function ShowThucDon()        {            var BabyOk = 0;            var remember = document.getElementById('BabyOk');            if (remember.checked)            {                BabyOk = 1;            }                        var ComBoMonAnId = 0;            var MonAnChinhId = 0;            var MuaVuId = 0;                        ComBoMonAnId = parseInt(document.getElementById('ChonComBoMonAn').value);            MonAnChinhId = parseInt(document.getElementById('MonAnChinh').value);            MuaVuId = parseInt(document.getElementById('ChonMuaVu').value);                        var YeuThich = Math.floor(Math.random() * 100);            if (YeuThich < 51)            {                YeuThich = 1;            }            else            {                YeuThich = 0;            }                                    if (YeuThich == 1)            {                var DSHopLe = [];                for (var i =0;i<DSThucDonYeuThich.length ;i++)                {                    if (DSThucDonYeuThich[i].ComBoMonAnId == ComBoMonAnId)                    {                        if (DSThucDonYeuThich[i].MuaVuId == MuaVuId || DSThucDonYeuThich[i].MuaVuId == 0)                        {                            if ((DSThucDonYeuThich[i].BabyOk == 1 && BabyOk == 1) || BabyOk == 0)                            {                                if (MonAnChinhId == DSThucDonYeuThich[i].ComBo[0])                                {                                    DSHopLe.push(DSThucDonYeuThich[i]);                                }                            }                        }                    }                }                                                var ID = Math.floor(Math.random() * DSHopLe.length);                var HTML= '';                for (var j=0;j<DSHopLe[ID].ComBo.length;j++)                {                    var Ten = '';                    if (j==0)                    {                        Ten = DSMonAn[DSHopLe[ID].ComBo[0]].Ten;                    }                    else                    {                        Ten = DSHopLe[ID].ComBo[j];                    }                                        HTML = HTML + '<div style="border-radius:5px;padding:8px;margin:0px 5px 5px 0px;border:0.3px solid green;color:green;background:white;">' + Ten + '</div>';                }                document.getElementById('ThucDon_Show').innerHTML = HTML;            }                        if (YeuThich == 0)            {                            //1. Từ combo chọn các món ăn trong danh sách phù hợp combo và phù hợp với trẻ em:                var ComBoMonAn = DSComBoMonAn[ComBoMonAnId];                var HTML = ComBoMonAn.Ten;                HTML = HTML + '<br>' + ComBoMonAn.Id;                document.getElementById('ThucDon_Show').innerHTML = HTML;                var DSMonAnOk = [];                                for (var i=0;i<ComBoMonAn.KetCau.length;i++)                {                    DSMonAnOk[i] = [];                    if (ComBoMonAn.KetCau[i] == 1)                    {                        DSMonAnOk[i].push(DSMonAn[MonAnChinhId].Ten);                    }                    else                    {                        for (var j=0;j<DSMonAn.length;j++)                        {                            if (DSMonAn[j].Active == 0)                            {}                            else                            {                                var PhanLoaiTrenMamId = -1;                                for (var k=0;k< DSChungLoaiMonAn.length;k++)                                {                                    if (DSChungLoaiMonAn[k].Id == DSMonAn[j].ChungLoaiMonAnId)                                    {                                        PhanLoaiTrenMamId = DSChungLoaiMonAn[k].PhanLoaiTrenMam;                                        break;                                    }                                }                                                                                                if (PhanLoaiTrenMamId == ComBoMonAn.KetCau[i])                                {                                    var PhuHopTreEm = 0;                                    if (BabyOk == 0)                                    {                                        PhuHopTreEm = 1;                                    }                                    else if (DSMonAn[j].BabyOk == 1)                                    {                                        PhuHopTreEm = 1;                                    }                                                                        var PhuHopMuaVu = 0;                                    if (MuaVuId == 0)                                    {                                        PhuHopMuaVu = 1;                                    }                                    else if (DSMonAn[j].MuaVuId == MuaVuId || DSMonAn[j].MuaVuId == 0)                                    {                                        PhuHopMuaVu = 1;                                    }                                                                                                            if (PhuHopTreEm == 1 && PhuHopMuaVu == 1)                                    {                                        DSMonAnOk[i].push(DSMonAn[j].Ten);                                    }                                }                            }                        }                    }                }                                var HTML= '';                for (var i=0;i<DSMonAnOk.length;i++)                {                    var ID = Math.floor(Math.random() * DSMonAnOk[i].length);                    HTML = HTML + '<div style="border-radius:5px;padding:8px;margin:0px 5px 5px 0px;border:0.3px solid green;color:green;background:white;">' + DSMonAnOk[i][ID] + '</div>';                }                                document.getElementById('ThucDon_Show').innerHTML = HTML;            }                                            }                        //Một số combo sai                //Một số combo ưa chuộng        class MonAnSang        {            constructor(Ten,Nhom)            {                this.Ten = Ten;                this.Nhom = Nhom;            }        }                var DSMonAnSang = [            new MonAnSang('Xôi xúc xích',1),            new MonAnSang('Xôi ruốc',1),            new MonAnSang('Xôi khúc',1),            new MonAnSang('Xôi gà',1),            new MonAnSang('Xôi đỗ xanh',1),            new MonAnSang('Xôi đỗ đen',1),                        new MonAnSang('Bánh mỳ patê [ruốc]',3),            new MonAnSang('Bánh mỳ [bơ] sữa',3),            new MonAnSang('Bánh mỳ trứng [ruốc]',3),            new MonAnSang('Bánh mỳ tam giác',3),            new MonAnSang('Hamburger',3),            new MonAnSang('Bánh đùi gà sữa đậu/chè',3),            new MonAnSang('Bánh xúc xích sữa đậu/chè',3),                                    new MonAnSang('Bún/Phở chân giò',2),            new MonAnSang('Bún/Phở bò',2),            new MonAnSang('Bún/Phở gà',2),            new MonAnSang('Bún giả cầy',2),            new MonAnSang('Bánh đa cá rô',2),            new MonAnSang('Bánh đa cá lóc',2),            new MonAnSang('Bún chả',2),            new MonAnSang('Bún riêu cua',2),            new MonAnSang('Canh miến',2),                        new MonAnSang('Cơm rang mắm',0),            new MonAnSang('Cơm + thức ăn',0),            new MonAnSang('Cơm rang dưa/cà',0),            new MonAnSang('Cơm rang trứng quấy',0),            new MonAnSang('Cơm rang trứng ốp',0),            new MonAnSang('Cơm rang thịt băm',0),            new MonAnSang('Cơm rang thịt bò',0),            new MonAnSang('Mì tôm Trứng',2),            new MonAnSang('Mì tôm xào rau cải/dưa',2),            new MonAnSang('Trứng ốp la',4),            new MonAnSang('Bánh bột mì + trứng',3),            new MonAnSang('Xúc xích rán',4),            new MonAnSang('Bánh cuốn chả',4),            new MonAnSang('Trứng vịt lộn',4),            new MonAnSang('Bánh mỳ sữa',4)                  ];                var KetQua = [];                function GoiYAnSang()        {            var ChonNhom = document.getElementById('ThucDon_AnSang_Nhom').value;            var TongSoMonTrongNhom = 0;            var DSMonAnSang_TheoNhom = [];                        if (parseInt(ChonNhom) == "-1")            {                TongSoMonTrongNhom = DSMonAnSang.length;                DSMonAnSang_TheoNhom = DSMonAnSang;            }            else            {                for (var i=0;i<DSMonAnSang.length;i++)                {                    if (parseInt(DSMonAnSang[i].Nhom) == parseInt(ChonNhom))                    {                        TongSoMonTrongNhom++;                        DSMonAnSang_TheoNhom.push(DSMonAnSang[i]);                    }                }            }            for (var i=0;i<DSMonAnSang_TheoNhom.length;i++)            {                var ID = Math.floor(Math.random() * DSMonAnSang_TheoNhom.length);                                if (KetQua.includes(ID))                {}                else                {                    KetQua.push(ID);                    document.getElementById('ThucDon_AnSang_Show_SoLuong').innerText = KetQua.length + '/' + TongSoMonTrongNhom;                    var HTML= '';                    if (KetQua.length == 1){} else {HTML += ' <br> ';}                    HTML += DSMonAnSang_TheoNhom[ID].Ten;                    if (KetQua.length == TongSoMonTrongNhom){HTML = HTML + ' (hết)';}                    document.getElementById('ThucDon_AnSang_Show').innerHTML += HTML;                    break;                }            }                                }                function XoaGoiYAnSang()        {            KetQua = [];            document.getElementById('ThucDon_AnSang_Show').innerText = '';            document.getElementById('ThucDon_AnSang_Show_SoLuong').innerText = '';        }                                    </script>    <style>        @media only screen and (max-width: 600px) {.Container{width:95%;border:1px solid green; border-radius:5px;padding:8px;}}        @media only screen and (min-width: 601px) {.Container{width:400px;border:1px solid green; border-radius:5px;padding:8px;}}    </style>    <center>        <div class="Container" style="margin-top:10px;margin-bottom:10px;min-height:120px;">    	    <table style="width:100%;">    	        <tr style="background:green;color:white;font-weight:bold;text-align:center;padding:8px;">    	            <td colspan="3">    	                <div style="padding:8px;">Ăn sáng</div>    	            </td>    	        </tr>    	        <tr>    	                	            <td>    	                <center>    	                    <select id="ThucDon_AnSang_Nhom" onchange="XoaGoiYAnSang();GoiYAnSang();" style="padding:8px;border-radius:5px;width:120px;color:green;border:0.5px solid green;">    	                        <option value="-1">Loại bất kỳ</option>    	                        <option value="0">Cơm</option>    	                        <option value="1">Xôi</option>    	                        <option value="2">Bún phở</option>    	                        <option value="3">Bánh mỳ</option>    	                        <option value="4">Khác</option>    	                    </select>    	                </center>    	            </td>    	                	            <td>    	                <div id="ThucDon_AnSang_Show_SoLuong">    	                        	                </div>    	            </td>    	        </tr>    	        <tr>    	            <td colspan="3">    	                <div id="ThucDon_AnSang_Show" style="width:100%;color:green;margin-top:10px;margin-bottom:10px;"></div>    	            </td>    	        </tr>    	        <tr>    	            <td colspan="3">    	                <center>    	                    <table style="width:75%;">    	                        <tr>    	                                	                            <td>                    	                <center>                    	                    <a class="Button" href="javascript:void(0)">                    	                    <div style="padding:8px;border-radius:5px;text-align:center;width:50px;color:green;border:0.5px solid green;" onclick="XoaGoiYAnSang();">Xóa</div>                    	                    </a>                    	                </center>                    	            </td>                    	            <td>                    	                <a class="Button" href="javascript:void(0)">    	                                    <div style="padding:8px;border-radius:5px;text-align:center;width:150px;color:green;border:0.5px solid green;" onclick="GoiYAnSang();">Chọn ăn sáng</div>    	                                </a>    	                            </td>                    	         </tr>    	                    </table>    	                 </center>    	            </td>    	        </tr>    	    </table>    	</div>    	    	<div class="Container" style="margin-top:10px;margin-bottom:10px;background:green;,min-height:200px;">&nbsp;    	    <div style="margin-bottom:8px;color:white;font-weight:bold;text-align:center;">    	        Bữa chính    	    </div>    	            	     	    <div id="ThucDon_Show" style="width:100%;">&nbsp;</div>    	</div>    	    	<div class="Container" style="background:#f2f2f2;">    		<center>    		    <table style="width:100%;">        	            				<tr>    				    <td>    				        <select id="ChonMuaVu" style="padding:8px;border-radius:5px;min-width:120px;color:green;">    				            <script>    				                var HTML = '';        				            for (var i=0;i<DSMuaVu.length;i++)        				            {        				                HTML = HTML + DSMuaVu[i].ToOption();        				            }        				            document.getElementById('ChonMuaVu').innerHTML = HTML;    				            </script>    				        </select>    				    </td>    				    <td>    				        <select id="MonAnChinh" style="padding:8px;border-radius:5px;min-width:120px;color:green;">    				            <script>    				                var HTML = '';        				            for (var i=0;i<DSMonAn.length;i++)        				            {        				                if (DSMonAn[i].ChungLoaiMonAnId == 0)        				                {        				                    HTML = HTML + DSMonAn[i].ToOption();        				                }        				            }        				            document.getElementById('MonAnChinh').innerHTML = HTML;    				            </script>    				        </select>    				    </td>    				</tr>    				<tr>    				    <td colspan="2">    				        <select id="ChonComBoMonAn" style="padding:8px;border-radius:5px;min-width:320px;color:green;">    				            <script>    				                var HTML = '';    				                for (var i=0;i<DSComBoMonAn.length;i++)    				                {    				                    HTML = HTML + '<option value="' + DSComBoMonAn[i].Id + '">' + DSComBoMonAn[i].Ten + '</option>';    				                }    				                document.getElementById('ChonComBoMonAn').innerHTML = HTML;    				            </script>    				        </select>    				        <br>    				        <input type="checkbox" id="BabyOk"><label for="BabyOk">Trẻ em cùng ăn các món đó</label>    				    </td>    				</tr>    				<tr>    				    <td colspan="2">    				        <center>    				            <a class="Button" href="javascript:void(0)">    				                <div style="padding:8px;border-radius:5px;text-align:center;width:120px;color:green;border:0.5px solid green;" onclick="ShowThucDon();">    				                    Tạo thực đơn    				                </div>    				           </a>    				        </center>    				    </td>    				</tr>    			</table>    		</center>    	</div>    	    	    	    	    	    	    </center></body>
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>TD</title>
+	<script language="javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<style>
+	    .Button:active {
+	        background:yellow;
+	        color:white;
+	    }
+	    
+	    a{
+	        text-decoration: none;
+	    }
+	</style>
+</head>
+<body>
+    <script>
+        class MonAn
+        {
+            constructor(Id,Ten,ChungLoaiMonAnId,Active,MuaVuId,BabyOk)
+            {
+                this.Id = Id;
+                this.Ten = Ten;
+                this.Active = Active;
+                this.MuaVuId = MuaVuId;
+                this.ChungLoaiMonAnId = ChungLoaiMonAnId;
+                this.BabyOk = BabyOk;
+            }
+            
+            Show()
+            {
+                var ShowHTML = '';
+                ShowHTML = ShowHTML + '<div style="border-radius:5px;float:left;margin:0px 5px 5px 0px;border:0.3px solid green;color:green;">' + this.Ten + '</div>';
+                document.getElementById('DSMonAn').innerHTML = document.getElementById('DSMonAn').innerHTML + ShowHTML;
+            }
+            
+            ToOption()
+            {
+                return '<option value="' + this.Id + '">' + this.Ten + '</option>';
+            }
+        }
+        
+        class ChungLoaiMonAn
+        {
+            constructor(Id,Ten,PhanLoaiTrenMam)
+            {
+                this.Id = Id;
+                this.Ten = Ten;
+                this.PhanLoaiTrenMam = PhanLoaiTrenMam;
+            }
+        }
+        
+                
+        
+        var DSChungLoaiMonAn = [];
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(0,"Tinh Bột"               ,1));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(1,"Thịt gia súc"           ,2));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(2,"Thịt/trứng gia cầm"     ,2));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(3,"Tôm/Cá nước ngọt"       ,2));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(4,"Rau"                    ,3));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(5,"Củ/quả nấu"             ,3));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(6,"Hoa quả"                ,5));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(7,"Bánh kẹo/sữa/đồ khô"    ,6));
+        DSChungLoaiMonAn.push(new ChungLoaiMonAn(8,"Khác"                   ,6));
+        
+        
+        class MuaVu
+        {
+            constructor(Id,Ten)
+            {
+                this.Id = Id;
+                this.Ten = Ten;
+            }
+            
+            ToOption()
+            {
+                return '<option value="' + this.Id + '">' + this.Ten + '</option>';
+            }
+        }
+        
+        var DSMuaVu = [];
+        
+        DSMuaVu.push(new MuaVu (0,"Quanh năm"));
+        DSMuaVu.push(new MuaVu (1,"Mùa Hè"));
+        DSMuaVu.push(new MuaVu (2,"Mùa Đông"));
+        DSMuaVu.push(new MuaVu (3,"Mùa Thu"));
+        DSMuaVu.push(new MuaVu (4,"Mùa Xuân"));
+        
+        
+        class ComBoMonAn
+        {
+            constructor(Id,Ten,KetCau)
+            {
+                this.Id = Id;
+                this.Ten = Ten;
+                this.KetCau = KetCau;
+            }
+        }
+        var DSPhanLoaiTrenMam = ("Khai vị","Tinh bột","Thức ăn mặn","Canh Rau","Món nhắm rượu bia","Tráng miệng","Khác");
+        var DSComBoMonAn = [];
+        DSComBoMonAn.push(new ComBoMonAn(0,"Mặc định",[1,2,3]));
+        DSComBoMonAn.push(new ComBoMonAn(1,"Mặc định có tráng miệng",[1,2,3,5]));
+        DSComBoMonAn.push(new ComBoMonAn(2,"Nhậu Có tráng miệng",[1,2,3,4,5]));
+        DSComBoMonAn.push(new ComBoMonAn(3,"Có khai vị, tráng miệng",[0,1,2,3,5]));
+        
+        
+        var DSMonAn = [];
+        var Id = 0;
+        DSMonAn.push(new MonAn(Id ,"Cơm"                            ,0,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Bún"                            ,0,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Cháo"                           ,0,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Phở"                            ,0,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Bánh mì"                        ,0,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Xôi"                            ,0,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Bánh bột khác"                  ,0,1,0,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn kho"                   ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn luộc"                  ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Tai lợn luộc"                   ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Chân giò lợn luộc/nướng luộc"   ,1,1,0,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn kho dừa"               ,1,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn băm rim mắm hành"      ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn viên [sốt cà chua]"    ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn kho tàu"               ,1,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn kho dừa"               ,1,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn rán/quay"              ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt xíu"                       ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Sườn lợn sốt cà chua"           ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Sườn lợn rán"                   ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt lợn băm cuốn lá lốt"       ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Giò/chả lợn"                    ,1,1,0,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Thịt gà kho"                    ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt gà luộc"                   ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Chân gà luộc"                   ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt gà rán"                    ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt gà rang muối"              ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt gà xào sả"                 ,1,1,0,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Cá rán"                         ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Cá kho"                         ,1,1,0,1));Id++;
+        
+        
+        DSMonAn.push(new MonAn(Id ,"Thịt Bò xào tỏi"                ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt Bò băm xào hành tây"       ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Thịt Bò cuốn lá cải"            ,1,1,0,0));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Đậu Phụ luộc"                   ,1,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Đậu Phụ rán"                    ,1,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Đậu Phụ [nhồi thịt] sốt cà chua",1,1,0,0));Id++;
+        
+        
+        DSMonAn.push(new MonAn(Id ,"Trứng luộc [dầm mắm]"           ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Trứng tráng"                    ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Trứng quấy"                     ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Trứng ốp"                       ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Trứng gà lá mơ"                 ,1,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Trứng chim cút luộc"            ,1,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Trứng chim cút kho thịt"        ,1,1,0,0));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Rau muống luộc"                 ,4,1,1,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Rau muống xào tỏi"              ,4,1,1,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Rau muống xào thịt"             ,4,1,1,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Rau ngót nấu thịt băm"          ,4,1,1,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Rau ngót nấu sườn"              ,4,1,1,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Rau bí xào tỏi"                 ,4,1,1,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Quả bí đao nấu thịt băm"        ,4,1,1,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Rau cải ngọt luộc"              ,4,1,2,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Canh cải ngọt thịt băm"         ,4,1,2,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Canh củ cải hầm xương"          ,4,1,2,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Canh củ cải thịt băm"           ,4,1,2,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Rau cải bắp luộc"               ,4,1,2,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Canh cải bắp hầm xương"         ,4,1,2,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Su hào luộc"                    ,4,1,2,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Canh Su hào hầm xương"          ,4,1,2,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Canh khoai tây hầm xương"       ,4,1,2,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Susu xào tỏi"                   ,4,1,2,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Canh cà chua trứng"             ,4,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Canh cà chua hầm xương"         ,4,1,0,1));Id++;
+        
+        DSMonAn.push(new MonAn(Id ,"Khoai tây chiên"                ,0,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Phổng tôm"                      ,0,1,0,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Khoai lang nướng"               ,0,1,0,0));Id++;
+        
+        
+        DSMonAn.push(new MonAn(Id ,"Dưa hấu"                        ,6,1,1,1));Id++;
+        DSMonAn.push(new MonAn(Id ,"Chuối"                          ,6,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Cam"                            ,6,1,1,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Xoài"                           ,6,1,1,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Bưởi"                           ,6,1,3,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Mít"                            ,6,1,1,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Nho"                            ,6,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Táo"                            ,6,1,0,0));Id++;
+        DSMonAn.push(new MonAn(Id ,"Lê"                             ,6,1,0,0));Id++;
+        
+        
+        class ThucDonYeuThich
+        {
+            constructor(Id,ComBoMonAnId,ComBo,MuaVuId,BabyOk)
+            {
+                this.Id = Id;
+                this.ComBoMonAnId = ComBoMonAnId;
+                this.ComBo = ComBo;
+                this.MuaVuId = MuaVuId;
+                this.BabyOk = BabyOk;
+            }
+        }
+        
+        var DSThucDonYeuThich = [];
+        var IdCom = 0;
+        DSThucDonYeuThich.push(new ThucDonYeuThich(0,0,[IdCom,'Thịt kho','Rau muống luộc']                ,0,1,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(1,0,[IdCom,'Thịt luộc','Rau muống luộc']               ,0,1,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(2,0,[IdCom,'Thịt băm','Canh trứng cà chua']            ,0,0,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(3,0,[IdCom,'Trứng tráng','Rau muống luộc']             ,0,0,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(4,0,[IdCom,'Trứng tráng','Rau cải/bắp cải luộc']       ,0,2,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(5,0,[IdCom,'Thịt gà kho','Rau cải/bắp cải luộc']       ,0,2,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(6,0,[IdCom,'Thịt gà kho','Rau muống luộc']             ,0,1,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(7,0,[IdCom,'Đậu sốt cà chua','Rau muống luộc']         ,0,1,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(8,0,[IdCom,'Đậu sốt cà chua','canh rau ngót thịt băm'] ,0,1,1));
+        DSThucDonYeuThich.push(new ThucDonYeuThich(9,0,[IdCom,'Trứng tráng','Rau cải/bắp cải nấu thịt băm'],0,2,1));
+        
+        
+        
+        function ShowThucDon()
+        {
+            var BabyOk = 0;
+            var remember = document.getElementById('BabyOk');
+            if (remember.checked)
+            {
+                BabyOk = 1;
+            }
+            
+            var ComBoMonAnId = 0;
+            var MonAnChinhId = 0;
+            var MuaVuId = 0;
+            
+            ComBoMonAnId = parseInt(document.getElementById('ChonComBoMonAn').value);
+            MonAnChinhId = parseInt(document.getElementById('MonAnChinh').value);
+            MuaVuId = parseInt(document.getElementById('ChonMuaVu').value);
+            
+            var YeuThich = Math.floor(Math.random() * 100);
+            if (YeuThich < 51)
+            {
+                YeuThich = 1;
+            }
+            else
+            {
+                YeuThich = 0;
+            }
+            
+            
+            if (YeuThich == 1)
+            {
+                var DSHopLe = [];
+                for (var i =0;i<DSThucDonYeuThich.length ;i++)
+                {
+                    if (DSThucDonYeuThich[i].ComBoMonAnId == ComBoMonAnId)
+                    {
+                        if (DSThucDonYeuThich[i].MuaVuId == MuaVuId || DSThucDonYeuThich[i].MuaVuId == 0)
+                        {
+                            if ((DSThucDonYeuThich[i].BabyOk == 1 && BabyOk == 1) || BabyOk == 0)
+                            {
+                                if (MonAnChinhId == DSThucDonYeuThich[i].ComBo[0])
+                                {
+                                    DSHopLe.push(DSThucDonYeuThich[i]);
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+                var ID = Math.floor(Math.random() * DSHopLe.length);
+                var HTML= '';
+                for (var j=0;j<DSHopLe[ID].ComBo.length;j++)
+                {
+                    var Ten = '';
+                    if (j==0)
+                    {
+                        Ten = DSMonAn[DSHopLe[ID].ComBo[0]].Ten;
+                    }
+                    else
+                    {
+                        Ten = DSHopLe[ID].ComBo[j];
+                    }
+                    
+                    HTML = HTML + '<div style="border-radius:5px;padding:8px;margin:0px 5px 5px 0px;border:0.3px solid green;color:green;background:white;">' + Ten + '</div>';
+                }
+                document.getElementById('ThucDon_Show').innerHTML = HTML;
+            }
+            
+            if (YeuThich == 0)
+            {            
+                //1. Từ combo chọn các món ăn trong danh sách phù hợp combo và phù hợp với trẻ em:
+                var ComBoMonAn = DSComBoMonAn[ComBoMonAnId];
+                var HTML = ComBoMonAn.Ten;
+                HTML = HTML + '<br>' + ComBoMonAn.Id;
+                document.getElementById('ThucDon_Show').innerHTML = HTML;
+                var DSMonAnOk = [];
+                
+                for (var i=0;i<ComBoMonAn.KetCau.length;i++)
+                {
+                    DSMonAnOk[i] = [];
+                    if (ComBoMonAn.KetCau[i] == 1)
+                    {
+                        DSMonAnOk[i].push(DSMonAn[MonAnChinhId].Ten);
+                    }
+                    else
+                    {
+                        for (var j=0;j<DSMonAn.length;j++)
+                        {
+                            if (DSMonAn[j].Active == 0)
+                            {}
+                            else
+                            {
+                                var PhanLoaiTrenMamId = -1;
+                                for (var k=0;k< DSChungLoaiMonAn.length;k++)
+                                {
+                                    if (DSChungLoaiMonAn[k].Id == DSMonAn[j].ChungLoaiMonAnId)
+                                    {
+                                        PhanLoaiTrenMamId = DSChungLoaiMonAn[k].PhanLoaiTrenMam;
+                                        break;
+                                    }
+                                }
+                                
+                                
+                                if (PhanLoaiTrenMamId == ComBoMonAn.KetCau[i])
+                                {
+                                    var PhuHopTreEm = 0;
+                                    if (BabyOk == 0)
+                                    {
+                                        PhuHopTreEm = 1;
+                                    }
+                                    else if (DSMonAn[j].BabyOk == 1)
+                                    {
+                                        PhuHopTreEm = 1;
+                                    }
+                                    
+                                    var PhuHopMuaVu = 0;
+                                    if (MuaVuId == 0)
+                                    {
+                                        PhuHopMuaVu = 1;
+                                    }
+                                    else if (DSMonAn[j].MuaVuId == MuaVuId || DSMonAn[j].MuaVuId == 0)
+                                    {
+                                        PhuHopMuaVu = 1;
+                                    }
+                                    
+                                    
+                                    if (PhuHopTreEm == 1 && PhuHopMuaVu == 1)
+                                    {
+                                        DSMonAnOk[i].push(DSMonAn[j].Ten);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                var HTML= '';
+                for (var i=0;i<DSMonAnOk.length;i++)
+                {
+                    var ID = Math.floor(Math.random() * DSMonAnOk[i].length);
+                    HTML = HTML + '<div style="border-radius:5px;padding:8px;margin:0px 5px 5px 0px;border:0.3px solid green;color:green;background:white;">' + DSMonAnOk[i][ID] + '</div>';
+                }
+                
+                document.getElementById('ThucDon_Show').innerHTML = HTML;
+            }
+            
+            
+            
+        }
+        
+        
+        //Một số combo sai
+        
+        //Một số combo ưa chuộng
+        class MonAnSang
+        {
+            constructor(Ten,Nhom)
+            {
+                this.Ten = Ten;
+                this.Nhom = Nhom;
+            }
+        }
+        
+        var DSMonAnSang = [
+            new MonAnSang('Xôi xúc xích',1),
+            new MonAnSang('Xôi ruốc',1),
+            new MonAnSang('Xôi khúc',1),
+            new MonAnSang('Xôi gà',1),
+            new MonAnSang('Xôi đỗ xanh',1),
+            new MonAnSang('Xôi đỗ đen',1),
+            
+            new MonAnSang('Bánh mỳ patê [ruốc]',3),
+            new MonAnSang('Bánh mỳ [bơ] sữa',3),
+            new MonAnSang('Bánh mỳ trứng [ruốc]',3),
+            new MonAnSang('Bánh mỳ tam giác',3),
+            new MonAnSang('Hamburger',3),
+            new MonAnSang('Bánh đùi gà sữa đậu/chè',3),
+            new MonAnSang('Bánh xúc xích sữa đậu/chè',3),
+            
+            
+            new MonAnSang('Bún/Phở chân giò',2),
+            new MonAnSang('Bún/Phở bò',2),
+            new MonAnSang('Bún/Phở gà',2),
+            new MonAnSang('Bún giả cầy',2),
+            new MonAnSang('Bánh đa cá rô',2),
+            new MonAnSang('Bánh đa cá lóc',2),
+            new MonAnSang('Bún chả',2),
+            new MonAnSang('Bún riêu cua',2),
+            new MonAnSang('Canh miến',2),
+            
+            new MonAnSang('Cơm rang mắm',0),
+            new MonAnSang('Cơm + thức ăn',0),
+            new MonAnSang('Cơm rang dưa/cà',0),
+            new MonAnSang('Cơm rang trứng quấy',0),
+            new MonAnSang('Cơm rang trứng ốp',0),
+            new MonAnSang('Cơm rang thịt băm',0),
+            new MonAnSang('Cơm rang thịt bò',0),
+            new MonAnSang('Mì tôm Trứng',2),
+            new MonAnSang('Mì tôm xào rau cải/dưa',2),
+            new MonAnSang('Trứng ốp la',4),
+            new MonAnSang('Bánh bột mì + trứng',3),
+            new MonAnSang('Xúc xích rán',4),
+            new MonAnSang('Bánh cuốn chả',4),
+            new MonAnSang('Trứng vịt lộn',4),
+            new MonAnSang('Bánh mỳ sữa',4)
+          
+        ];
+        
+        var KetQua = [];
+        
+        function GoiYAnSang()
+        {
+            var ChonNhom = document.getElementById('ThucDon_AnSang_Nhom').value;
+            var TongSoMonTrongNhom = 0;
+            var DSMonAnSang_TheoNhom = [];
+            
+            if (parseInt(ChonNhom) == "-1")
+            {
+                TongSoMonTrongNhom = DSMonAnSang.length;
+                DSMonAnSang_TheoNhom = DSMonAnSang;
+            }
+            else
+            {
+                for (var i=0;i<DSMonAnSang.length;i++)
+                {
+                    if (parseInt(DSMonAnSang[i].Nhom) == parseInt(ChonNhom))
+                    {
+                        TongSoMonTrongNhom++;
+                        DSMonAnSang_TheoNhom.push(DSMonAnSang[i]);
+                    }
+                }
+            }
+
+            for (var i=0;i<DSMonAnSang_TheoNhom.length;i++)
+            {
+                var ID = Math.floor(Math.random() * DSMonAnSang_TheoNhom.length);
+                
+                if (KetQua.includes(ID))
+                {}
+                else
+                {
+                    KetQua.push(ID);
+                    document.getElementById('ThucDon_AnSang_Show_SoLuong').innerText = KetQua.length + '/' + TongSoMonTrongNhom;
+                    var HTML= '';
+                    if (KetQua.length == 1){} else {HTML += ' <br> ';}
+                    HTML += DSMonAnSang_TheoNhom[ID].Ten;
+                    if (KetQua.length == TongSoMonTrongNhom){HTML = HTML + ' (hết)';}
+                    document.getElementById('ThucDon_AnSang_Show').innerHTML += HTML;
+                    break;
+                }
+            }
+            
+            
+        }
+        
+        function XoaGoiYAnSang()
+        {
+            KetQua = [];
+            document.getElementById('ThucDon_AnSang_Show').innerText = '';
+            document.getElementById('ThucDon_AnSang_Show_SoLuong').innerText = '';
+        }
+        
+        
+        
+        
+    </script>
+    <style>
+        @media only screen and (max-width: 600px) {.Container{width:95%;border:1px solid green; border-radius:5px;padding:8px;}}
+        @media only screen and (min-width: 601px) {.Container{width:400px;border:1px solid green; border-radius:5px;padding:8px;}}
+    </style>
+    <center>
+        <div class="Container" style="margin-top:10px;margin-bottom:10px;min-height:120px;">
+    	    <table style="width:100%;">
+    	        <tr style="background:green;color:white;font-weight:bold;text-align:center;padding:8px;">
+    	            <td colspan="3">
+    	                <div style="padding:8px;">Ăn sáng</div>
+    	            </td>
+    	        </tr>
+    	        <tr>
+    	            
+    	            <td>
+    	                <center>
+    	                    <select id="ThucDon_AnSang_Nhom" onchange="XoaGoiYAnSang();GoiYAnSang();" style="padding:8px;border-radius:5px;width:120px;color:green;border:0.5px solid green;">
+    	                        <option value="-1">Loại bất kỳ</option>
+    	                        <option value="0">Cơm</option>
+    	                        <option value="1">Xôi</option>
+    	                        <option value="2">Bún phở</option>
+    	                        <option value="3">Bánh mỳ</option>
+    	                        <option value="4">Khác</option>
+    	                    </select>
+    	                </center>
+    	            </td>
+    	            
+    	            <td>
+    	                <div id="ThucDon_AnSang_Show_SoLuong">
+    	                    
+    	                </div>
+    	            </td>
+    	        </tr>
+    	        <tr>
+    	            <td colspan="3">
+    	                <div id="ThucDon_AnSang_Show" style="width:100%;color:green;margin-top:10px;margin-bottom:10px;"></div>
+    	            </td>
+    	        </tr>
+    	        <tr>
+    	            <td colspan="3">
+    	                <center>
+    	                    <table style="width:75%;">
+    	                        <tr>
+    	                            
+    	                            <td>
+                    	                <center>
+                    	                    <a class="Button" href="javascript:void(0)">
+                    	                    <div style="padding:8px;border-radius:5px;text-align:center;width:50px;color:green;border:0.5px solid green;" onclick="XoaGoiYAnSang();">Xóa</div>
+                    	                    </a>
+                    	                </center>
+                    	            </td>
+                    	            <td>
+                    	                <a class="Button" href="javascript:void(0)">
+    	                                    <div style="padding:8px;border-radius:5px;text-align:center;width:150px;color:green;border:0.5px solid green;" onclick="GoiYAnSang();">Chọn ăn sáng</div>
+    	                                </a>
+    	                            </td>
+                    	         </tr>
+    	                    </table>
+    	                 </center>
+    	            </td>
+    	        </tr>
+    	    </table>
+    	</div>
+    	
+    	<div class="Container" style="margin-top:10px;margin-bottom:10px;background:green;,min-height:200px;">&nbsp;
+    	    <div style="margin-bottom:8px;color:white;font-weight:bold;text-align:center;">
+    	        Bữa chính
+    	    </div>
+    	    
+        	 
+    	    <div id="ThucDon_Show" style="width:100%;">&nbsp;</div>
+    	</div>
+    	
+    	<div class="Container" style="background:#f2f2f2;">
+    		<center>
+    		    <table style="width:100%;">
+        	        
+    				<tr>
+    				    <td>
+    				        <select id="ChonMuaVu" style="padding:8px;border-radius:5px;min-width:120px;color:green;">
+    				            <script>
+    				                var HTML = '';
+        				            for (var i=0;i<DSMuaVu.length;i++)
+        				            {
+        				                HTML = HTML + DSMuaVu[i].ToOption();
+        				            }
+        				            document.getElementById('ChonMuaVu').innerHTML = HTML;
+    				            </script>
+    				        </select>
+    				    </td>
+    				    <td>
+    				        <select id="MonAnChinh" style="padding:8px;border-radius:5px;min-width:120px;color:green;">
+    				            <script>
+    				                var HTML = '';
+        				            for (var i=0;i<DSMonAn.length;i++)
+        				            {
+        				                if (DSMonAn[i].ChungLoaiMonAnId == 0)
+        				                {
+        				                    HTML = HTML + DSMonAn[i].ToOption();
+        				                }
+        				            }
+        				            document.getElementById('MonAnChinh').innerHTML = HTML;
+    				            </script>
+    				        </select>
+    				    </td>
+    				</tr>
+    				<tr>
+    				    <td colspan="2">
+    				        <select id="ChonComBoMonAn" style="padding:8px;border-radius:5px;min-width:320px;color:green;">
+    				            <script>
+    				                var HTML = '';
+    				                for (var i=0;i<DSComBoMonAn.length;i++)
+    				                {
+    				                    HTML = HTML + '<option value="' + DSComBoMonAn[i].Id + '">' + DSComBoMonAn[i].Ten + '</option>';
+    				                }
+    				                document.getElementById('ChonComBoMonAn').innerHTML = HTML;
+    				            </script>
+    				        </select>
+    				        <br>
+    				        <input type="checkbox" id="BabyOk"><label for="BabyOk">Trẻ em cùng ăn các món đó</label>
+    				    </td>
+    				</tr>
+    				<tr>
+    				    <td colspan="2">
+    				        <center>
+    				            <a class="Button" href="javascript:void(0)">
+    				                <div style="padding:8px;border-radius:5px;text-align:center;width:120px;color:green;border:0.5px solid green;" onclick="ShowThucDon();">
+    				                    Tạo thực đơn
+    				                </div>
+    				           </a>
+    				        </center>
+    				    </td>
+    				</tr>
+    			</table>
+    		</center>
+    	</div>
+    	
+    	
+    	
+    	
+    	
+    	
+    </center>
+</body>
